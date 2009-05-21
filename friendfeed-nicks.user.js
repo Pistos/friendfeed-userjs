@@ -10,11 +10,15 @@
 // Licence: MIT licence
 // Copyright (c) Pistos 2009
 
+var ffn_jQuery;
+if( typeof unsafeWindow != 'undefined' ) {
+    ffn_jQuery = unsafeWindow.jQuery;
+} else {
+    ffn_jQuery = jQuery;
+}
 
-( function() {
-    $( 'div.name > a' ).each( function() {
-        if( $(this).text().indexOf( ' ' ) > -1 ) {
-            $(this).text( $(this).attr( 'href' ).substr( 1 ) );
-        }
-    } );
-} )();
+ffn_jQuery( 'div.name > a' ).each( function() {
+    if( ffn_jQuery(this).text().indexOf( ' ' ) > -1 ) {
+        ffn_jQuery(this).text( ffn_jQuery(this).attr( 'href' ).substr( 1 ) );
+    }
+} );
