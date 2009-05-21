@@ -22,9 +22,17 @@ if( typeof unsafeWindow != 'undefined' ) {
     ffn_jQuery = jQuery;
 }
 
-ffn_jQuery( 'div.name a.l_profile' ).each( function() {
-    var link = ffn_jQuery(this);
-    if( link.attr( 'href' ) != '/' + link.attr( 'sid' ) ) {
-        ffn_jQuery(this).text( ffn_jQuery(this).attr( 'href' ).substr( 1 ) );
-    }
+function change_names_to_nicks() {
+    ffn_jQuery( 'div.name a.l_profile' ).each( function() {
+        var link = ffn_jQuery(this);
+        if( link.attr( 'href' ) != '/' + link.attr( 'sid' ) ) {
+            ffn_jQuery(this).text( ffn_jQuery(this).attr( 'href' ).substr( 1 ) );
+        }
+    } );
+}
+
+ffn_jQuery( '#feed' ).bind( 'ajaxSuccess', function() {
+    change_names_to_nicks();
 } );
+
+change_names_to_nicks();
