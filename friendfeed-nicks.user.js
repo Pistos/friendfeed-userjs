@@ -35,4 +35,8 @@ ffn_jQuery( '#feed' ).bind( 'ajaxSuccess', function() {
     change_names_to_nicks();
 } );
 
+ffn_jQuery("#feed").ajaxSuccess(function(evt, request, settings){
+    change_names_to_nicks();
+});
+
 change_names_to_nicks();
