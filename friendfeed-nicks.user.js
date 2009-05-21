@@ -23,7 +23,7 @@ if( typeof unsafeWindow != 'undefined' ) {
 }
 
 function change_names_to_nicks() {
-    ffn_jQuery( 'div.name a.l_profile' ).each( function() {
+    ffn_jQuery( 'div.name a.l_profile, div.likes a.l_profile' ).each( function() {
         var link = ffn_jQuery(this);
         if( link.attr( 'href' ) != '/' + link.attr( 'sid' ) ) {
             ffn_jQuery(this).text( ffn_jQuery(this).attr( 'href' ).substr( 1 ) );
